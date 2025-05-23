@@ -21,6 +21,8 @@ RUN chmod +x /metrics/source/app/action/index.mjs \
   # Install ruby to support github licensed gem
   && apt-get install -y ruby-full git g++ cmake pkg-config libssl-dev build-essential zlib1g-dev libxml2-dev libxslt1-dev \
   && gem install licensed \
+  && rm -f /etc/apt/sources.list.d/google.list \
+  && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
   # Install python for node-gyp
   && apt-get install -y python3 \
   # Clean apt/lists
